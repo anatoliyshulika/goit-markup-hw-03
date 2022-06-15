@@ -1,0 +1,255 @@
+/* Global variables */
+:root {
+  --main-white-color: #ffffff;
+  --main-black-color: #000000;
+  --main-text-color: #757575;
+  --second-text-title-color: #212121;
+  --accent-color: #2196f3;
+  --accent-bg-color: #2f303a;
+  --hero-btn-hover-bg-color: #188ce8;
+  --our-team-bg-color: #f5f4fa;
+}
+
+/* -------------------------Common styles--------------------------- */
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  background-color: var(--main-white-color);
+  color: var(--main-text-color);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+}
+
+.titles {
+  font-weight: 700;
+  color: var(--second-text-title-color);
+}
+/* -------------------------Common styles--------------------------- */
+
+/* -------------------------------Header----------------------------- */
+.logo {
+  /* Typography */
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  text-decoration: none;
+  letter-spacing: inherit;
+  color: var(--accent-color);
+}
+
+.logo-header {
+  color: var(--main-black-color);
+}
+
+/* -----------------------Navigation */
+.header-link {
+  /* Typography */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: inherit;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: var(--second-text-title-color);
+}
+
+.current {
+  color: var(--accent-color);
+}
+
+.header-link:hover,
+.header-link:focus {
+  color: var(--accent-color);
+}
+/* -----------------------Navigation */
+
+/* ----------------------- Header Contacts */
+.contact-link {
+  color: inherit;
+}
+/* ----------------------- Header Contacts */
+/* -------------------------------Header----------------------------- */
+
+/* -------------------------------Main----------------------------- */
+/* ----------------------- Hero */
+.hero {
+  background-color: var(--accent-bg-color);
+}
+
+.hero-title {
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--main-white-color);
+}
+
+.hero-btn {
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: var(--main-white-color);
+  background-color: var(--accent-color);
+
+  cursor: pointer;
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+  background-color: var(--hero-btn-hover-bg-color);
+}
+/* ----------------------- Hero */
+
+/* ----------------------- Our features */
+.features-title {
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.our-features {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.features {
+  width: 270px;
+  line-height: 1.71;
+}
+/* ----------------------- Our features */
+
+/* ----------------------- What we do */
+.what-we-do {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.what-we-do-title {
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+}
+/* ----------------------- What we do */
+
+/* ----------------------- Our team */
+.our-team {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+
+  background-color: var(--our-team-bg-color);
+}
+
+.our-team-title {
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+}
+
+.staff-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  text-align: center;
+
+  color: var(--second-text-title-color);
+}
+
+.major {
+  font-size: 16px;
+  line-height: 1.19;
+  text-align: center;
+}
+/* ----------------------- Our team */
+/* -------------------------------Main----------------------------- */
+
+/* -------------------------------Footer----------------------------- */
+.footer {
+  background-color: var(--accent-bg-color);
+}
+
+.logo-footer {
+  color: var(--main-white-color);
+}
+
+.address-list {
+  list-style: none;
+}
+
+.post-address {
+  font-style: normal;
+  line-height: 1.71;
+  color: var(--main-white-color);
+}
+
+.link-address {
+  text-decoration: none;
+  font-style: normal;
+  font-size: inherit;
+  line-height: 1.71;
+  letter-spacing: inherit;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* -----------------------------------------------------------index-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+/* ---------------------------------------------------------portfolio------------------------------------------------------------ */
+/* -------------------------------Main----------------------------- */
+/* ----------------------- Work filter */
+.works-btn {
+  height: 38px;
+
+  border: 0px;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
+  letter-spacing: inherit;
+
+  color: var(--second-text-title-color);
+  background-color: var(--our-team-bg-color);
+
+  cursor: pointer;
+}
+
+.works-btn:hover,
+.works-btn:focus {
+  background-color: var(--accent-color);
+  color: var(--main-white-color);
+}
+/* ----------------------- Work filter */
+
+/* ----------------------- Work list */
+.work-title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--second-text-title-color);
+}
+
+.discr-title {
+  font-size: 16px;
+  line-height: 1.88;
+  color: var(--main-text-color);
+}
+/* ----------------------- Work list */
+/* -------------------------------Main----------------------------- */

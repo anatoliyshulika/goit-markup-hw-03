@@ -166,7 +166,6 @@ img {
 /* -------------------------------Main----------------------------- */
 /* ----------------------- Hero */
 .hero {
-  width: max-content;
   min-height: 600px;
   padding-top: 200px;
   text-align: center;

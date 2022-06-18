@@ -8,6 +8,10 @@
   --accent-bg-color: #2f303a;
   --hero-btn-hover-bg-color: #188ce8;
   --our-team-bg-color: #f5f4fa;
+  --work-item-border-color: #eeeeee;
+  --heder-bord-color: #ececec;
+  --num-of-cards: 1; /*number of cards in flex grid*/
+  --space-between: 30px; /*space betwwen cards*/
 }
 
 /* -------------------------Common styles--------------------------- */
@@ -15,30 +19,95 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 14px;
   letter-spacing: 0.03em;
+
   background-color: var(--main-white-color);
   color: var(--main-text-color);
 }
 
-.list {
-  list-style: none;
-  display: flex;
+/* Reset some styles */
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  padding: 94px 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .titles {
   font-weight: 700;
   color: var(--second-text-title-color);
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* It is formula for gridding flex */
+.list > .item {
+  margin-right: var(--space-between);
+  flex-basis: calc(
+    (100% - (var(--space-between) * (var(--num-of-cards) - 1))) /
+      var(--num-of-cards)
+  );
+}
 /* -------------------------Common styles--------------------------- */
 
 /* -------------------------------Header----------------------------- */
+.header {
+  border-bottom: 1px solid var(--heder-bord-color);
+
+  background-color: var(--main-white-color);
+}
+.header-flex {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
-  /* Typography */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  vertical-align: middle;
+
   font-family: Raleway, sans-serif;
   font-weight: 700;
   font-size: 26px;
   line-height: 1.2;
   text-decoration: none;
   letter-spacing: inherit;
+
   color: var(--accent-color);
 }
 
@@ -47,23 +116,43 @@ body {
 }
 
 /* -----------------------Navigation */
+.nav {
+  margin-left: 93px;
+}
+
+.list-nav > li:not(:first-child) {
+  margin-left: 50px;
+}
+
 .header-link {
-  /* Typography */
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
   text-decoration: none;
   font-weight: 500;
   font-size: inherit;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
   color: var(--second-text-title-color);
+}
+
+.header-link:hover,
+.header-link:focus {
+  color: var(--accent-color);
 }
 
 .current {
   color: var(--accent-color);
 }
 
-.header-link:hover,
-.header-link:focus {
-  color: var(--accent-color);
+.header-contact-list {
+  margin-left: auto;
+}
+
+.header-contact-list > li:not(:first-child) {
+  margin-left: 50px;
 }
 /* -----------------------Navigation */
 
@@ -77,30 +166,39 @@ body {
 /* -------------------------------Main----------------------------- */
 /* ----------------------- Hero */
 .hero {
+  min-height: 600px;
+  padding-top: 200px;
+  text-align: center;
+
   background-color: var(--accent-bg-color);
 }
 
 .hero-title {
+  margin-bottom: 30px;
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
   color: var(--main-white-color);
 }
 
 .hero-btn {
   width: 200px;
   height: 50px;
-  margin: 0 auto;
-  display: block;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
 
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
+
   color: var(--main-white-color);
   background-color: var(--accent-color);
 
@@ -115,52 +213,100 @@ body {
 
 /* ----------------------- Our features */
 .features-title {
+  margin-bottom: 10px;
+
   line-height: 1.14;
   text-transform: uppercase;
 }
 
-.our-features {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
+/* Юлия привет, этот комент специально для тебя. Идущие ниже три свойства, это по совету Репеты
+я придумал свою формулу расположения элементов во флексах. И она далжна быть идельной, я уже хотел писать,
+ято пусть Саша Репета готовит виски, глядя на его лицо, мне кажется он любит виски :) Но к моему разочарованию
+:nth-child(an + b) не умеет принимать аргументы, оно не умеет принять в руте объявленную переменную, хотя тот же
+margin принимает ее бзе проблем. В общем, моя идеальная задумка не вышла, чтобы просто переопределять две
+переменных, поэтому оставил запись состоящую из трех пунктов, это тоже не так много, за то нет проблем с отрицательными
+марджинами и так далее. В общем надеюсь тебе понравится мое решение :) */
+
+.features-list > .item {
+  --num-of-cards: 4;
+}
+
+.features-list > .item:nth-child(n + 5) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.features-list > .item:nth-child(4n + 4) {
+  margin-right: 0;
 }
 
 .features {
-  width: 270px;
   line-height: 1.71;
 }
 /* ----------------------- Our features */
 
-/* ----------------------- What we do */
-.what-we-do {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-}
+/* ----------------------- What we do*/
+.content-title {
+  margin-bottom: 50px;
 
-.what-we-do-title {
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
+}
+
+.what-we-do-section {
+  padding-top: 0;
+}
+
+.what-we-do-list > .item {
+  --num-of-cards: 3;
+}
+
+.what-we-do-list > .item:nth-child(n + 4) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.what-we-do-list > .item:nth-child(3n + 3) {
+  margin-right: 0;
 }
 /* ----------------------- What we do */
 
 /* ----------------------- Our team */
 .our-team {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-
   background-color: var(--our-team-bg-color);
 }
 
-.our-team-title {
-  font-size: 36px;
-  line-height: 1.16;
-  text-align: center;
+.staff-list > .item {
+  --num-of-cards: 4;
+}
+
+.staff-list > .item:nth-child(n + 5) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.staff-list > .item:nth-child(4n + 4) {
+  margin-right: 0;
+}
+
+.staf-card {
+  padding-bottom: 30px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+
+  background-color: var(--main-white-color);
 }
 
 .staff-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -179,6 +325,9 @@ body {
 
 /* -------------------------------Footer----------------------------- */
 .footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
   background-color: var(--accent-bg-color);
 }
 
@@ -188,11 +337,17 @@ body {
 
 .address-list {
   list-style: none;
+  margin-top: 20px;
+}
+
+.address-list > .item:not(:last-child) {
+  margin-bottom: 9px;
 }
 
 .post-address {
   font-style: normal;
   line-height: 1.71;
+
   color: var(--main-white-color);
 }
 
@@ -202,8 +357,10 @@ body {
   font-size: inherit;
   line-height: 1.71;
   letter-spacing: inherit;
+
   color: rgba(255, 255, 255, 0.6);
 }
+/* -------------------------------Footer----------------------------- */
 /* -----------------------------------------------------------index-------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------------------ */
 
@@ -211,8 +368,17 @@ body {
 /* ---------------------------------------------------------portfolio------------------------------------------------------------ */
 /* -------------------------------Main----------------------------- */
 /* ----------------------- Work filter */
+.btn-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.btn-list > .item:not(:last-child) {
+  margin-right: 8px;
+}
 .works-btn {
-  height: 38px;
+  padding: 6px 22px;
 
   border: 0px;
   border-radius: 4px;
@@ -238,17 +404,42 @@ body {
 /* ----------------------- Work filter */
 
 /* ----------------------- Work list */
+.work-list > .item {
+  --num-of-cards: 3;
+}
+
+.work-list > .item:nth-child(n + 4) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.work-list > .item:nth-child(3n + 3) {
+  margin-right: 0;
+}
+
+.card-container {
+  padding: 19px 23px;
+
+  background-color: var(--main-white-color);
+  border: 1px solid var(--work-item-border-color);
+}
+
 .work-title {
+  margin-bottom: 4px;
+
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+
   color: var(--second-text-title-color);
 }
 
 .discr-title {
   font-size: 16px;
   line-height: 1.88;
+
   color: var(--main-text-color);
 }
 /* ----------------------- Work list */

@@ -173,9 +173,15 @@ img {
   background-color: var(--accent-bg-color);
 }
 
-.hero-title {
+.box-title {
+  width: 700px;
+  margin-top: 0;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.hero-title {
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -215,6 +221,7 @@ img {
 .features-title {
   margin-bottom: 10px;
 
+  font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
 }
@@ -294,8 +301,6 @@ margin принимает ее бзе проблем. В общем, моя ид
 }
 
 .staf-card {
-  padding-bottom: 30px;
-
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -303,14 +308,18 @@ margin принимает ее бзе проблем. В общем, моя ид
   background-color: var(--main-white-color);
 }
 
+.staff-discr {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
 .staff-title {
-  margin-top: 30px;
   margin-bottom: 10px;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
-  text-align: center;
 
   color: var(--second-text-title-color);
 }
@@ -318,7 +327,6 @@ margin принимает ее бзе проблем. В общем, моя ид
 .major {
   font-size: 16px;
   line-height: 1.19;
-  text-align: center;
 }
 /* ----------------------- Our team */
 /* -------------------------------Main----------------------------- */
@@ -419,10 +427,12 @@ margin принимает ее бзе проблем. В общем, моя ид
 }
 
 .card-container {
-  padding: 19px 23px;
+  padding: 20px 24px;
 
   background-color: var(--main-white-color);
-  border: 1px solid var(--work-item-border-color);
+  border-right: 1px solid var(--work-item-border-color);
+  border-bottom: 1px solid var(--work-item-border-color);
+  border-left: 1px solid var(--work-item-border-color);
 }
 
 .work-title {
